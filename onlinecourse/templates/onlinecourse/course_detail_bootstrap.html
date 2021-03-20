@@ -13,13 +13,15 @@
                     </div>
                 {% endfor %}
             </div>
-            <input class="btn btn-success btn-block" id="collapse-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#exam" aria-expanded="false" aria-controls="exam" value="Show Exam" />
+            <button class="btn btn-success btn-block" type="button" data-bs-toggle="collapse" data-bs-target="#exam" aria-expanded="false" aria-controls="exam" >
+                Show Exam
+            </button>
             
             <div id="exam" class="collapse.show" >
                 <form id="questionform" action="{% url 'onlinecourse:submit' course.id %}" method="post">
                     {% for question in course.question_set.all %}
                     <div class="card mt-1">
-                        <div class="card-header"><h5>{{ question.text}}</h5></div>
+                        <div class="card-header"><h5>{{ question.text }}</h5></div>
                         {% csrf_token %}
                         <div class="form-group">
                            {% for choice in question.choice_set.all %}

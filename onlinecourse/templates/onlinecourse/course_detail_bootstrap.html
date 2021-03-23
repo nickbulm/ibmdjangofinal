@@ -1,5 +1,12 @@
 {% extends "onlinecourse/layout.html" %}
-
+{% block head %}
+    <script> 
+        const div = document.getElementById("exma")
+        function toggle() {
+            div.collapse("toggle")
+        }
+    </script>
+{% endblock %}
     {% block main %}
 
     <!-- Page content -->
@@ -13,11 +20,11 @@
                     </div>
                 {% endfor %}
             </div>
-            <button class="btn btn-success btn-block" type="button" data-bs-toggle="collapse" data-bs-target="#exam" aria-expanded="false" aria-controls="exam" >
+            <button class="btn btn-success btn-block" type="button" data-toggle="collapse" data-target="#exam" aria-expanded="true" aria-controls="exam" >
                 Show Exam
             </button>
             
-            <div id="exam" class="collapse.show" >
+            <div id="exam" class="collapse" >
                 <form id="questionform" action="{% url 'onlinecourse:submit' course.id %}" method="post">
                     {% for question in course.question_set.all %}
                     <div class="card mt-1">

@@ -5,7 +5,8 @@
 <div class="container-fluid">
     {% if grade > 80 %}
     <div class="alert alert-success">
-       <strong> Congratulations, {{ user.first_name }}! </strong> You have passed the exam and completed the course with score {{ grade }} / 100
+       <strong> Congratulations, {{ user.first_name }}! </strong> 
+       You have passed the exam and completed the course with score {{ grade }} / 100
     </div>
         {% else %}
         <div class="alert alert-danger">
